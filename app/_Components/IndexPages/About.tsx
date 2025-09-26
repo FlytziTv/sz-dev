@@ -298,7 +298,7 @@ const SIDE = [
         className="rounded-md"
       />
     ),
-    title: "New-mat Mechatronics",
+    title: "Ynov Campus",
     description: "Bts sio slam",
     date: "sept. 2025 - juin 2027 · 2 ans",
     category: "stud",
