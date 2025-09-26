@@ -17,7 +17,7 @@ export const About = () => {
         <div className="flex justify-center ">
           <div className="flex justify-center flex-col items-center gap-[8px]">
             <Image
-              src="/img/aboutPages/me.jpg"
+              src="/img/icons/me.jpg"
               alt="Description"
               width={120}
               height={120}
