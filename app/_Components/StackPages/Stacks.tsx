@@ -14,7 +14,7 @@ export const Stack = () => {
             Mon poste de travail
           </h2>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-[8px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[8px]">
           {setup.map((item, idx) => (
             <StackCard key={item.title + idx} {...item} />
           ))}
@@ -28,7 +28,7 @@ export const Stack = () => {
             Mes Languages
           </h2>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-[8px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[8px]">
           {language.map((item, idx) => (
             <StackCard key={item.title + idx} {...item} />
           ))}
@@ -42,7 +42,7 @@ export const Stack = () => {
             Mes logiciels
           </h2>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-[8px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[8px]">
           {logiciel.map((item, idx) => (
             <StackCard key={item.title + idx} {...item} />
           ))}
@@ -56,7 +56,7 @@ export const Stack = () => {
             Mes extensions
           </h2>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-[8px]">
+        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[8px]">
           {extension.map((item, idx) => (
             <StackCard key={item.title + idx} {...item} />
           ))}
@@ -78,7 +78,7 @@ const STACK = [
         className="h-[60px] w-auto"
       />
     ),
-    title: "Intel® Core™ i5 14400F",
+    title: "Intel Core i5 14400F",
     description: "Processeur Pc Fixe",
     link: "https://amzn.eu/d/gSrqm7t",
   },
@@ -672,20 +672,20 @@ const StackCard = (props: StackProps) => {
       target="_blank"
       rel="noopener noreferrer"
       href={props.link}
-      className="flex flex-col gap-4 p-4 w-full rounded-md border border-solid border-transparent hover:border-border hover:bg-accent/50 transition-colors"
+      className="flex flex-row gap-4 p-(--padding-8) w-full rounded-(--radius-8) border border-solid border-transparent hover:border-border hover:bg-accent/50 transition-colors"
     >
       <div className="flex items-center justify-center h-[80px] w-[80px] bg-muted-foreground/10 rounded-md border border-solid border-border p-[4px]">
         {props.Logo}
       </div>
 
-      <div className="flex flex-col">
+      <div className="flex flex-col gap-(4px) justify-center">
         <h3 className="text-base font-bold">{props.title}</h3>
         <p className="text-sm font-light">{props.description}</p>
-      </div>
 
-      <div className="flex gap-2 items-center">
-        <Link className="size-[16px] " />
-        <p className="text-sm font-medium ">Consulter</p>
+        <div className="flex gap-2 items-center">
+          <Link className="size-[16px] " />
+          <p className="text-sm font-medium ">Consulter</p>
+        </div>
       </div>
     </a>
   );
