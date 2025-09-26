@@ -18,7 +18,7 @@ export const Works = () => {
             Quelque projets ({listProjects}/5)
           </h2>
         </div>
-        <div className="flex flex-row gap-[8px]">
+        <div className="flex flex-row gap-[16px]">
           <div className="flex-1 flex flex-col gap-[4px]">
             {WORKS_LIST.map((item, idx) => (
               <WorkCard
@@ -29,7 +29,7 @@ export const Works = () => {
               />
             ))}
           </div>
-          <div className="w-[400px] hidden md:block">
+          <div className="w-[400px] hidden lg:block">
             <Image
               src={WORKS_LIST[hoveredIdx].image}
               alt={WORKS_LIST[hoveredIdx].title}
@@ -46,19 +46,19 @@ export const Works = () => {
 
 const WORKS_LIST = [
   {
-    link: "#",
+    link: "https://alexis-dejesus.vercel.app/",
     title: "Mon portfolio",
     description: "Flytzi",
     language: "React, Next.js, Tailwind",
     image: "/img/works/portfolio.png",
   },
-  // {
-  //   link: "https://tansi.dev",
-  //   title: "Tansi MAKELE",
-  //   description: "Portfolio",
-  //   language: "Next.js, Sanity, Tailwind",
-  //   image: "/img/stack/Intel®-Core™-i5-14400F.png",
-  // },
+  {
+    link: "https://sz-fivem.vercel.app/garage",
+    title: "Menu FiveM",
+    description: "Flytzi",
+    language: "Next.js, Sanity, Tailwind",
+    image: "/img/works/fivem-nui.png",
+  },
 ];
 
 type WorkCardProps = {
@@ -78,16 +78,26 @@ const WorkCard = (props: WorkCardProps) => {
       rel="noopener noreferrer"
       href={props.link}
       onMouseEnter={props.onHover}
-      className={`flex items-center justify-between group px-[16px] py-[8px] rounded-md transition-colors
-        ${props.isActive ? "bg-accent/70" : "hover:bg-accent/50"}
+      className={`grid grid-cols-4 group px-[16px] py-[8px] rounded-md transition-all duration-200 ease-in-out
+        ${
+          props.isActive
+            ? "bg-accent"
+            : "hover:bg-accent/40 hover:shadow-sm hover:scale-[1.02]"
+        }
       `}
     >
-      <h3 className="text-base font-bold text-foreground">{props.title}</h3>
-      <p className="text-sm text-foreground">{props.description}</p>
-      <p className="inline-block text-foreground text-xs font-mono">
+      <h3 className="flex items-center text-base font-bold text-foreground group-hover:text-foreground/90 transition-colors">
+        {props.title}
+      </h3>
+      <p className="flex items-center text-sm text-foreground group-hover:text-foreground/80 transition-colors">
+        {props.description}
+      </p>
+      <p className="flex items-center text-foreground text-xs font-mono group-hover:text-foreground/70 transition-colors">
         {props.language}
       </p>
-      <ArrowUpRight className="size-[15px] text-foreground" />
+      <div className="flex items-center justify-end">
+        <ArrowUpRight className="size-[15px] text-foreground group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-200" />
+      </div>
     </Link>
   );
 };
